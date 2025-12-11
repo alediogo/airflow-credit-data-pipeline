@@ -1,0 +1,11 @@
+# Logs e Dados locais
+logs/
+plugins/
+data/
+.env
+.venv/
+__pycache__/
+
+# Arquivos temporários do Airflow/Docker
+airflow-worker.pid
+postgres-db-volume/
