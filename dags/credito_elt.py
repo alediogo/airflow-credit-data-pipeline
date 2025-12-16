@@ -52,7 +52,7 @@ def transform_data():
     df_juros['data_ref'] = pd.to_datetime(df_juros['data_ref'], format='%d/%m/%Y')
     
     # 4. Merge (JOIN) das tabelas pela data
-    # Vamos criar um "Dataset Master" com tudo junto
+    # Criando um "Dataset Master" com tudo junto
     df_final = pd.merge(df_inad, df_juros, on='data_ref', how='inner')
     
     # 5. Salvar resultado
