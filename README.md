@@ -12,37 +12,6 @@ Pipeline de Engenharia de Dados **ELT (Extract, Load, Transform)** desenvolvido 
 
 Este projeto orquestra o ciclo de vida de dados de crédito utilizando **Apache Airflow** em ambiente containerizado (**Docker**), garantindo reprodutibilidade, escalabilidade e monitoramento.
 
----
-
-graph LR
-    subgraph Fonte
-        A[API Banco Central]
-    end
-
-    subgraph Docker ["🐳 Docker Container (Airflow)"]
-        direction TB
-        B(Orquestração DAGs)
-        C[Bronze: Ingestão Raw]
-        D[Prata: Tratamento Pandas]
-        E[Ouro: Agregação KPI]
-        
-        B --> C
-        B --> D
-        B --> E
-        C --> D --> E
-    end
-
-    subgraph Cloud ["☁️ AWS S3 (Simulado)"]
-        F[(Data Lake)]
-    end
-
-    A -- "Request JSON" --> C
-    E -- "Parquet/CSV" --> F
-
-    style Docker fill:#e1f5fe,stroke:#01579b,stroke-width:2px,stroke-dasharray: 5 5
-    style Cloud fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
-    style Fonte fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
-
 ## 📋 Sobre o Projeto
 
 O objetivo deste projeto é criar uma base analítica histórica para estudos de **Risco de Crédito**, cruzando dois indicadores econômicos fundamentais disponibilizados pelo Sistema Gerenciador de Séries Temporais (SGS) do Banco Central:
