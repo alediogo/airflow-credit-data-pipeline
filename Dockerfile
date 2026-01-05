@@ -1,5 +1,5 @@
 # Usa Python 3.9 (versão estável para Airflow)
-FROM python:3.9-slim
+FROM python:3.10-slim
 
 # Define diretório de trabalho
 WORKDIR /app
